@@ -1,7 +1,7 @@
 # webline
 Laravel wrapper for webline
 
-#Installation
+##Installation
 
 Add the following to your require block in composer.json
 
@@ -9,7 +9,7 @@ Add the following to your require block in composer.json
 "fabwebstudio/webline":"1.*"
 </pre>
 
-#Configuration
+##Configuration
 Add to your 'config/app.php' (Laravel 5) the service provider:
 
 <pre>
@@ -25,4 +25,60 @@ Add to your 'config/app.php' (Laravel 5) the service provider:
 ],
 </pre>
 
+
+##Publish vander
+<pre>
+ php artisan vendor:publish
+  </pre>
+
+Next you can modify the generated configuration file webline.php accordingly.
+
+#Usage
+Create object of webline classe to call the api
+
+<pre>
+$Webline    = new Webline();
+
+$Webline->generateToken(
+        getenv( 'WEBLINE_NUMBER' ),
+        getenv( 'WEBLINE_USER' ),
+        getenv( 'WEBLINE_PASS' ) );
+
+$lead_data = [
+                 'title'     => '',
+                 'forename'  => '',
+                 'surname'   => '',
+                 'dob'       => '',
+                 'sex'       => '',
+                 'smoker'    => '',
+                 'earnings'  => '',
+                 'term'      => '',
+                 'benefit'   => '',
+                 'frequency' => '',
+                 'prottype'  => '',
+                 'coverbasis' => '',
+              ]
+
+$Webline->quoteReference(
+        $lead_data
+ );
+
+ $partner_data = [
+            'ptnr_title' => '',
+            'ptnr_forename' => '',
+            'ptnr_surname' => '',
+            'ptnr_dob' => '',
+            'ptnr_sex' => '',
+            'ptnr_smoker' => '',
+        ]
+
+ $lead_data = array_merge($lead_data,$partner_data);
+
+ $Webline->quoteReference(
+         $lead_data
+  );
+
+ $quote_data = $Webline->retrieveQuoteCommand();
+
+</pre>
 
