@@ -1,0 +1,14 @@
+{
+    "name": "fabwebstudio/webline",
+    "description": "Insurance data collector, webline wrapper package for laravel",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Fws Udit",
+            "email": "uditrawat@fabwebstudio.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
