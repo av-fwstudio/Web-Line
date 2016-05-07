@@ -32,18 +32,17 @@ Add to your 'config/app.php' (Laravel 5) the service provider:
   </pre>
 
 Next you can modify the generated configuration file webline.php accordingly.
-
+<br/>
 ##Usage
 Create object of webline classe to call the api
 
 <pre>
 $Webline    = new Webline();
 
-$Webline->generateToken(
-        getenv( 'WEBLINE_NUMBER' ),
-        getenv( 'WEBLINE_USER' ),
-        getenv( 'WEBLINE_PASS' ) );
+// Get token from webline
+$token = $Webline->generateToken();
 
+// Lead data
 $lead_data = [
                  'title'     => '',
                  'forename'  => '',
@@ -58,12 +57,8 @@ $lead_data = [
                  'prottype'  => '',
                  'coverbasis' => '',
               ]
-
-$Webline->quoteReference(
-        $lead_data
- );
-
- $partner_data = [
+// Partner data
+$partner_data = [
             'ptnr_title' => '',
             'ptnr_forename' => '',
             'ptnr_surname' => '',
@@ -72,13 +67,13 @@ $Webline->quoteReference(
             'ptnr_smoker' => '',
         ]
 
- $lead_data = array_merge($lead_data,$partner_data);
+$lead_data = array_merge($lead_data,$partner_data);
 
- $Webline->quoteReference(
-         $lead_data
-  );
+$Webline->quoteReference(
+        $lead_data
+ );
 
- $quote_data = $Webline->retrieveQuoteCommand();
+$quote_data = $Webline->retrieveQuoteCommand();
 
 </pre>
 
