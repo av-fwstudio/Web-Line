@@ -26,7 +26,7 @@ Add to your 'config/app.php' (Laravel 5) the service provider:
 </pre>
 
 
-##Publish vander
+##Publish vendor
 <pre>
  php artisan vendor:publish
   </pre>
