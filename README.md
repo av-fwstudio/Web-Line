@@ -34,7 +34,7 @@ Add to your 'config/app.php' (Laravel 5) the service provider:
 Next you can modify the generated configuration file webline.php accordingly.
 
 
-#Usage
+##Usage
 Create object of webline classe to call the api
 
 <pre>
